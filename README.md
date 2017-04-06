@@ -2,10 +2,10 @@
 DBC Overflow project
 
 ## Team JPEG
-### Philip Cornman
-### Eitan Greene
-### Grace Noh
-### Jordan Levine
+#### Philip Cornman
+#### Eitan Greene
+#### Grace Noh
+#### Jordan Levine
 
 ## User Stories:
 ### While logged in a user can:
