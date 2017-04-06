@@ -1,14 +1,14 @@
 # JPEG-Underflow
 DBC Overflow project
 
-##Team JPEG
-###Philip Cornman
-###Eitan Greene
-###Grace Noh
-###Jordan Levine
+## Team JPEG
+### Philip Cornman
+### Eitan Greene
+### Grace Noh
+### Jordan Levine
 
-##User Stories:
-###While logged in a user can:
+## User Stories:
+### While logged in a user can:
 * Post a question
 * Answer a question
 * Comment on an answer
@@ -19,5 +19,5 @@ DBC Overflow project
 * Vote once per question
 * Vote once per comment
 
-###While logged in or not:
+### While logged in or not:
 * A user can view anything
