@@ -21,7 +21,7 @@
   <a href='/'>Home</a>
   <a href='/users/new'>Register</a>
   <% if session[:user] %>
-    <a href='/sessions/'>LOGOUT</a>
+    <%= erb :'_logout-form' %>
   <% else %>
     <%= erb :'_login-form' %>
     <% if @error %>
