@@ -14,8 +14,6 @@ while i < 10 do
     i += 1
 end
 
-
-
 question_fodder=['How do I wash my hair?','Can I please have some popcorn?', 'How do I eat a banana?','Should I go to sleep?']
 30.times do
   Question.create( {
@@ -25,30 +23,54 @@ question_fodder=['How do I wash my hair?','Can I please have some popcorn?', 'Ho
 end
 
 answer_fodder=['Yes','No','Jump up and down and your problem will be solved','Ask your mom to do it','Jumping jacks will solve your problem']
+question_ids = Question.all.pluck(:id)
 30.times do
   Answer.create( {
-    question_id: rand(1..30),
+    question_id: question_ids[rand(0..29)],
     user_id: rand(1..10),
     answer_text: answer_fodder[rand(0..4)]
     })
 end
 
-class_names = ['Answer','Question','Comment']
-comment_fodder = ['I like it.','I do not like it', 'This is the best thing I have seen all day.','Hmmmm... try again, please']
+question_comment_fodder = ['I like this question.','I do not like this question', 'This is the best question I have seen all day.','Hmmmm... try again, please, with a better question','I like your question, I just do not love it']
+question_ids = Question.all.pluck(:id)
 30.times do
   Comment.create( {
     user_id: rand(1..10),
-    comment_text: comment_fodder[rand(0..3)],
-    commentable_id: rand(1..30),
-    commentable_type: class_names[rand(0..2)]
+    comment_text: question_comment_fodder[rand(0..4)],
+    commentable_id: question_ids[rand(0..29)],
+    commentable_type: 'Question'
     })
 end
+
+answer_comment_fodder = ['I like this answer.','I do not like this answer', 'This is the best answer I have seen all day.','Hmmmm... try again, please, with a better answer','I like your answer, I just do not love it']
+answer_ids = Answer.all.pluck(:id)
+30.times do
+  Comment.create( {
+    user_id: rand(1..10),
+    comment_text: answer_comment_fodder[rand(0..4)],
+    commentable_id: answer_ids[rand(0..29)],
+    commentable_type: 'Answer'
+    })
+end
+
+comment_comment_fodder = ['This is a great comment.','I really like this comment.','I do not like this comment.', 'This comment is the best thing I have seen all day.','Hmmmm... try again, please, with a better comment','I like your comment, I just do not love it.']
+comment_ids=Comment.all.pluck(:id)
+30.times do
+  Comment.create( {
+    user_id: rand(1..10),
+    comment_text: comment_comment_fodder[rand(0..5)],
+    commentable_id: comment_ids[rand(0..29)],
+    commentable_type: 'Comment'
+    })
+end
+
 
 vote_fodder=['up','down']
 30.times do
   Vote.create( {
     user_id: rand(1..10),
-    answer_id: rand(1..30),
+    answer_id: answer_ids[rand(0..29)],
     up_or_down: vote_fodder[rand(0..1)]
     })
 end
