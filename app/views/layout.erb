@@ -18,11 +18,11 @@
   <title></title>
 </head>
 <body>
-  <form id="log-in-register">
-    <input type="email" name="user[email]" placeholder="email">
+  <form id="login-register">
+    <input type="email" name="user[email]" placeholder="email" >
     <input type="password" name="user[password]" placeholder="password">
-    <input type="submit" name="login" value="Log In">
-    <input type="submit" name="sign-up" value="Sign Up">
+    <button id="login-button">Log In</button>
+    <button id="register-button" >Sign Up</button>
   </form>
   <%= yield %>
 </body>
