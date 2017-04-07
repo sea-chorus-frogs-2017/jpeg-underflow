@@ -1,13 +1,18 @@
 <div id="question-container">
   <h1><%= @question.question_text %></h1>
-  <% 10.times do %>
-    <br>
-  <% end %>
+  <br>
   <div id='comments-container'>
     <ul>
       <% @question.comments.each do |comment| %>
-        <%= comment.comment_text %>
+        <li><%= comment.comment_text %></li>
       <% end %>
+    </ul>
+  </div>
+  <div id="answers-container">
+    <ul>
+    <% @question.answers.each do |answer| %>
+      <li><%= answer.answer_text %></li>
+    <% end %>
     </ul>
   </div>
 </div>

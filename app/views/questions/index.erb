@@ -1,3 +1,11 @@
 <div>
   <a href="some place">Ask a question...</a>
 </div>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <a href="/questions/<%= question.id %>"><%= question.question_text %></a>
+    </li>
+  <% end %>
+</ul>
