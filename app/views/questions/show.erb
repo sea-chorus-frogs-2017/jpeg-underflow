@@ -1,7 +1,7 @@
 <div id="question-container">
   <h1><%= @question.question_text %></h1>
-  <br>
   <div id='comments-container'>
+    <h2>Comments</h2>
     <ul>
       <% @question.comments.each do |comment| %>
         <li><%= comment.comment_text %></li>
@@ -9,6 +9,7 @@
     </ul>
   </div>
   <div id="answers-container">
+    <h2>Answers</h2>
     <ul>
     <% @question.answers.each do |answer| %>
       <li><%= answer.answer_text %></li>
