@@ -3,7 +3,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
 
   has_many :self_comments, as: :commentable, class_name: "Comment"
-  has_many :votes
+  has_many :votes, as: :votable
 
   validates_presence_of :user
 end
