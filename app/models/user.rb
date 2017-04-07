@@ -3,6 +3,12 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   include BCrypt
+
+  has_many :questions
+  has_many :answers
+  has_many :votes
+  has_many :comments
+
   validates :email, presence: true, uniqueness: true
   validates :password_hash, presence: true
   validates :name, presence: true
@@ -21,5 +27,3 @@ class User < ActiveRecord::Base
     user.password == password
   end
 end
-
-
