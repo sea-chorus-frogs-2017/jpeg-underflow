@@ -21,9 +21,12 @@
   <a href='/'>Home</a>
   <a href='/users/new'>Register</a>
   <% if session[:user] %>
-    <%= "TRUE" %>
+    <a href='/sessions/'>LOGOUT</a>
   <% else %>
     <%= erb :'_login-form' %>
+    <% if @error %>
+      <%= @error %>
+    <% end %>
   <% end %>
   <%= yield %>
 </body>

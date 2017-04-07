@@ -1,3 +1,5 @@
+enable :sessions
+
 post '/users' do
   user = User.new(params[:user])
   user.save
