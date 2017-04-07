@@ -1,3 +1,5 @@
+require 'faker'
+
 User.destroy_all
 Question.destroy_all
 Answer.destroy_all
@@ -8,6 +10,7 @@ email_fodder=['hello@hi.com','bob@smith.com','mary@jones.com','jpeg@rules.com','
 i = 0
 while i < 10 do
   User.create( {
+    name: Faker::Name.name,
     email: email_fodder[i],
     password: 'hunter2'
     })
