@@ -1,0 +1,13 @@
+<div id="question-container">
+  <h1><%= @question.question_text %></h1>
+  <% 10.times do %>
+    <br>
+  <% end %>
+  <div id='comments-container'>
+    <ul>
+      <% @question.comments.each do |comment| %>
+        <%= comment.comment_text %>
+      <% end %>
+    </ul>
+  </div>
+</div>
