@@ -16,11 +16,12 @@ while i < 10 do
     })
     i += 1
 end
+user_ids = User.all.pluck(:id)
 
 question_fodder=['How do I wash my hair?','Can I please have some popcorn?', 'How do I eat a banana?','Should I go to sleep?']
 30.times do
   Question.create( {
-    user_id: rand(1..10),
+    user_id: user_ids[rand(0..9)],
     question_text: question_fodder[rand(0..3)]
     })
 end
@@ -30,7 +31,7 @@ question_ids = Question.all.pluck(:id)
 30.times do
   Answer.create( {
     question_id: question_ids[rand(0..29)],
-    user_id: rand(1..10),
+    user_id: user_ids[rand(0..9)],
     answer_text: answer_fodder[rand(0..4)]
     })
 end
@@ -39,7 +40,7 @@ question_comment_fodder = ['I like this question.','I do not like this question'
 question_ids = Question.all.pluck(:id)
 30.times do
   Comment.create( {
-    user_id: rand(1..10),
+    user_id: user_ids[rand(0..9)],
     comment_text: question_comment_fodder[rand(0..4)],
     commentable_id: question_ids[rand(0..29)],
     commentable_type: 'Question'
@@ -50,7 +51,7 @@ answer_comment_fodder = ['I like this answer.','I do not like this answer', 'Thi
 answer_ids = Answer.all.pluck(:id)
 30.times do
   Comment.create( {
-    user_id: rand(1..10),
+    user_id: user_ids[rand(0..9)],
     comment_text: answer_comment_fodder[rand(0..4)],
     commentable_id: answer_ids[rand(0..29)],
     commentable_type: 'Answer'
@@ -61,7 +62,7 @@ comment_comment_fodder = ['This is a great comment.','I really like this comment
 comment_ids=Comment.all.pluck(:id)
 30.times do
   Comment.create( {
-    user_id: rand(1..10),
+    user_id: user_ids[rand(0..9)],
     comment_text: comment_comment_fodder[rand(0..5)],
     commentable_id: comment_ids[rand(0..29)],
     commentable_type: 'Comment'
@@ -72,7 +73,7 @@ end
 vote_fodder=['up','down']
 30.times do
   Vote.create( {
-    user_id: rand(1..10),
+    user_id: user_ids[rand(0..9)],
     votable_id: answer_ids[rand(0..29)],
     votable_type: 'Answer',
     up_or_down: vote_fodder[rand(0..1)]
@@ -81,7 +82,7 @@ end
 
 30.times do
   Vote.create( {
-    user_id: rand(1..10),
+    user_id: user_ids[rand(0..9)],
     votable_id: question_ids[rand(0..29)],
     votable_type: 'Question',
     up_or_down: vote_fodder[rand(0..1)]
@@ -90,7 +91,7 @@ end
 
 30.times do
   Vote.create( {
-    user_id: rand(1..10),
+    user_id: user_ids[rand(0..9)],
     votable_id: comment_ids[rand(0..29)],
     votable_type: 'Comment',
     up_or_down: vote_fodder[rand(0..1)]
