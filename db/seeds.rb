@@ -6,7 +6,7 @@ Comment.destroy_all
 
 email_fodder=['hello@hi.com','bob@smith.com','mary@jones.com','jpeg@rules.com','hi@hi.com','cornman@corny.com','sparky@happy.com','grace@comcast.net','eitan@gmail.com','bobby@yodel.com']
 i = 0
-while i < 10 do 
+while i < 10 do
   User.create( {
     email: email_fodder[i],
     password: 'hunter2'
@@ -70,7 +70,26 @@ vote_fodder=['up','down']
 30.times do
   Vote.create( {
     user_id: rand(1..10),
-    answer_id: answer_ids[rand(0..29)],
+    votable_id: answer_ids[rand(0..29)],
+    votable_type: 'Answer',
+    up_or_down: vote_fodder[rand(0..1)]
+    })
+end
+
+30.times do
+  Vote.create( {
+    user_id: rand(1..10),
+    votable_id: question_ids[rand(0..29)],
+    votable_type: 'Question',
+    up_or_down: vote_fodder[rand(0..1)]
+    })
+end
+
+30.times do
+  Vote.create( {
+    user_id: rand(1..10),
+    votable_id: comment_ids[rand(0..29)],
+    votable_type: 'Comment',
     up_or_down: vote_fodder[rand(0..1)]
     })
 end
