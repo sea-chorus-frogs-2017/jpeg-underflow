@@ -1,0 +1,12 @@
+.inline {
+  display: inline;
+}
+
+#register {
+  padding-top: 300px;
+}
+
+#register input {
+  margin: auto;
+  display: block;
+}
