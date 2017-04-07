@@ -1,5 +1,6 @@
 delete '/sessions' do
-  # DELETE SESSION
+  session.destroy
+  redirect '/'
 end
 
 post '/sessions' do
@@ -17,7 +18,4 @@ post '/sessions' do
     @error = "Invalid email"
     erb :'/index'
   end
-
-  # create session[:user]
-  # redirect to home
 end
