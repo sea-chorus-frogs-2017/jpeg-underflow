@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
+  validates :email, presence: true, uniqueness: true
+
   include BCrypt
   def password
     @password ||= Password.new(password_hash)
