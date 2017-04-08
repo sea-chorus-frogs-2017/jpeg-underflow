@@ -1,6 +1,6 @@
-<div>
-  <a href="some place">Ask a question...</a>
-</div>
+<% if session[:user] %>
+  <a href="/questions/new">Post a question</a>
+<% end %>
 
 <ul>
   <% @questions.each do |question| %>
@@ -9,3 +9,4 @@
     </li>
   <% end %>
 </ul>
+
