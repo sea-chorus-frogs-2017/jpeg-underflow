@@ -12,7 +12,15 @@
     <h2>Answers</h2>
     <ul>
     <% @question.answers.each do |answer| %>
-      <li><%= answer.answer_text %></li>
+      <li class="answer">
+        <%= answer.answer_text %>
+        <h4>Comments</h4>
+        <ul>
+        <% answer.comments.each do |comment| %>
+          <li><%= comment.comment_text %></li>
+        <% end %>
+        </ul>
+      </li>
     <% end %>
     </ul>
   </div>
