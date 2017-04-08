@@ -15,7 +15,7 @@ post '/sessions' do
       erb :'/index'
     end
   else
-    @error = "Invalid email"
+    @error = "Invalid email."
     erb :'/index'
   end
 end
