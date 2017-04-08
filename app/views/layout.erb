@@ -19,10 +19,10 @@
 </head>
 <body>
   <a href='/'>Home</a>
-  <a href='/users/new'>Register</a>
   <% if session[:user] %>
     <%= erb :'_logout-form' %>
   <% else %>
+    <a href='/users/new'>Register</a>
     <%= erb :'_login-form' %>
     <% if @error %>
       <%= @error %>

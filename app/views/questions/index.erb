@@ -1,5 +1,12 @@
-<div>
-  <% if session[:user] %>
-    <a href="/questions/new">Post a question</a>
+<% if session[:user] %>
+  <a href="/questions/new">Post a question</a>
+<% end %>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <a href="/questions/<%= question.id %>"><%= question.question_text %></a>
+    </li>
   <% end %>
-</div>
+</ul>
+
