@@ -14,7 +14,7 @@ $(document).ready(function() {
   })
 
   // when new answer is submitted, send ajax post with entered data to server
-  // when response is returned, destroy new answer form and post button
+  // when response is returned, clear new answer form/post button
   // and display new answer
   $('#new-answer-container').submit(function(origEvent) {
     origEvent.preventDefault();
@@ -26,6 +26,8 @@ $(document).ready(function() {
     }).done(function(response) {
       // insert partial showing new answer 
       $('#answers-container').append(response);
+      // clear new answer form
+      $('#new-answer-container').empty()
     });
   });
 
