@@ -3,15 +3,19 @@ $(document).ready(function() {
   // when "add answer" button is clicked, prevent default behavior
   // and display "new answer" form
   $('#add-answer-button').on('click',function(origEvent) {
-    console.log('add answer button was clicked');
     origEvent.preventDefault();
     $.ajax ({
       url: '/../../answers/new',
       type: 'GET'
     }).done(function(response) {
-      $('#new-answer-container').append(response);
-    })
-  })
+      if (response === "To post an answer, please log in.") {
+        alert(response);
+      }
+      else {
+        $('#new-answer-container').append(response);
+      };
+    });
+  });
 
   // when new answer is submitted, send ajax post with entered data to server
   // when response is returned, clear new answer form/post button
@@ -24,10 +28,15 @@ $(document).ready(function() {
       type: 'POST',
       data: { answer_text: new_answer }
     }).done(function(response) {
-      // insert partial showing new answer 
-      $('#answers-container').append(response);
-      // clear new answer form
-      $('#new-answer-container').empty()
+      if(response === "To post an answer, please log in.") {
+        alert(response);
+      }
+      else {
+        // insert partial showing new answer 
+        $('#answers-container').append(response);
+        // clear new answer form
+        $('#new-answer-container').empty()
+      };
     });
   });
 
