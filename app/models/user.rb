@@ -1,18 +1,15 @@
-enable :sessions
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  include BCrypt
-
+  
   has_many :questions
   has_many :answers
   has_many :votes
   has_many :comments
 
   validates :email, presence: true, uniqueness: true
-  validates :password_hash, presence: true
-  validates :name, presence: true
 
+  include BCrypt
   def password
     @password ||= Password.new(password_hash)
   end
@@ -26,4 +23,5 @@ class User < ActiveRecord::Base
     user = User.find_by(email: email)
     user.password == password
   end
+
 end
