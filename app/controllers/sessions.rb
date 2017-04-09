@@ -4,7 +4,6 @@ delete '/sessions' do
   redirect '/'
 end
 
-
 post '/sessions' do
   email = params[:user][:email]
   user = User.find_by(email: email)
