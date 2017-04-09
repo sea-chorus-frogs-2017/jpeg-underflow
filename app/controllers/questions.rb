@@ -1,7 +1,7 @@
 
-
 get '/questions' do
   @questions = Question.all
+  session.delete(:question_id)
   erb :'/questions/index'
 end
 
