@@ -10,7 +10,6 @@ get '/answers/new' do
       erb :"/answers/_new-answer-form", layout: false
     else
       @add_answer_error = "To post an answer, please log in."
-      @add_answer_error
     end
   else
     # not an ajax request
@@ -40,7 +39,6 @@ post '/answers/new' do
       # errorMsg: (error message), and
       # htmlToAppend: (partial with new answer to append)
       @add_answer_error = "To post an answer, please log in."
-      @add_answer_error
     end
   else
     # not an AJAX request
