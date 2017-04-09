@@ -9,8 +9,6 @@ get '/answers/new' do
       # user is logged in; okay to return new answer form
       erb :"/answers/_new-answer-form", layout: false
     else
-      # user is not logged in; posting an answer is not permitted
-      # TEAM JPEG - Sparky needs help figuring out how to display this error message
       @add_answer_error = "To post an answer, please log in."
       @add_answer_error
     end

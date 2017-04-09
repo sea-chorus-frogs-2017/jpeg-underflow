@@ -4,15 +4,11 @@ delete '/sessions' do
   redirect '/'
 end
 
-
 post '/sessions' do
   email = params[:user][:email]
   user = User.find_by(email: email)
   if user
     if user.authenticate(email, params[:user][:password])
-      # Hello, TEAM JPEG! Sparky changed the session key from user to user_id
-      # because she was running into issues with the cookie being too large
-      # session[:user] = user
       session[:user_id] = user.id
       redirect '/'
     else
