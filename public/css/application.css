@@ -16,24 +16,7 @@
   display: block;
 }
 
-#question-container {
-  /*text-align: center;*/
-}
-
-#comments-container {
-  width: 30%;
-  border: 1px dotted #D3D3D3;
-}
-
-#answers-container {
-  width: 30%;
-  border: 2px dotted #000000;
-}
-
 li {
   list-style: none;
 }
 
-.answer {
-  border: 1px solid black;
-}

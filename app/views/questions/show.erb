@@ -2,22 +2,22 @@
   <h1><%= @question.question_text %></h1>
   <div id='comments-container'>
     <h2>Comments</h2>
-    <ul>
+    <ul class="list-group">
       <% @question.comments.each do |comment| %>
-        <li><%= comment.comment_text %></li>
+        <li class="list-group-item"><%= comment.comment_text %></li>
       <% end %>
     </ul>
   </div>
-  <div id="answers-container">
+  <div class="list-group" id="answers-container">
     <h2>Answers</h2>
     <ul>
     <% @question.answers.each do |answer| %>
-      <li class="answer">
+      <li class="answer list-group-item">
         <%= answer.answer_text %>
         <h4>Comments</h4>
-        <ul>
+        <ul class="list-group">
         <% answer.comments.each do |comment| %>
-          <li><%= comment.comment_text %></li>
+          <li class="list-group-item"><%= comment.comment_text %></li>
         <% end %>
         </ul>
       </li>
