@@ -1,3 +1,4 @@
+
 delete '/sessions' do
   session.destroy
   redirect '/'
@@ -8,7 +9,7 @@ post '/sessions' do
   user = User.find_by(email: email)
   if user
     if user.authenticate(email, params[:user][:password])
-      session[:user] = user
+      session[:user_id] = user.id
       redirect '/'
     else
       @error = "Invalid password."
@@ -18,4 +19,9 @@ post '/sessions' do
     @error = "Invalid email."
     erb :'/index'
   end
+end
+
+#helper to allow us to see what is in session
+get '/session-viewer' do
+  session.inspect
 end
