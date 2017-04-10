@@ -36,7 +36,7 @@ $(document).ready(function() {
         alert(response);
       }
       else {
-        // insert partial showing new answer 
+        // insert partial showing new answer
         $('#answers-container').append(response);
         // clear new answer form
         $('#new-answer-container').empty()
