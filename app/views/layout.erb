@@ -28,6 +28,9 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <li><a href="/users/new">Register</a></li>
+            <% if session[:user_id] %>
+              <li><a href="/questions/new">Post a question</a></li>
+            <% end %>
           </ul>
           <% if session[:user_id] %>
             <%= erb :'_logout-form' %>
