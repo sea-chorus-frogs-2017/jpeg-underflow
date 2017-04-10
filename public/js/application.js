@@ -32,11 +32,27 @@ $(document).ready(function() {
         alert(response);
       }
       else {
-        // insert partial showing new answer 
+        // insert partial showing new answer
         $('#answers-container').append(response);
         // clear new answer form
         $('#new-answer-container').empty()
       };
+    });
+  });
+
+  $('#vote-as-best').on('click',function(origEvent) {
+    origEvent.preventDefault();
+    $.ajax ({
+      url: '/../../answers/ <  ***************answer id here>',
+      type: 'PUT'
+      data: {best: true}
+    }).done(function(response) {
+      if (response === "To mark an answer as BEST, please log in.") {
+        alert(response);
+      }
+      else {
+      $(origEvent.target).append(response);
+      }
     });
   });
 

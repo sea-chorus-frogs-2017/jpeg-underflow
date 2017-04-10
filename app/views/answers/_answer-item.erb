@@ -1,4 +1,15 @@
-<li class="answer">
-  <%= answer_text %>
+<li class="answer" id="<%=@answer.id%>">
+  <%= @answer.answer_text %>
+  <% if @answer.question.user == user and @answer.question.has_best_answer() == false%>
+    <button class="vote-as-best" type="button">Declare as Best Answer!</button>
+  <% end %>
+  <% if @answer.is_best_answer() == true%>
+    <h3>BEST ANSWER!</h3>
+  <% end %>
   <h4>Comments</h4>
+  <ul>
+  <% @answer.comments.each do |comment| %>
+    <li><%= comment.comment_text %></li>
+  <% end %>
+  </ul>
 </li>
