@@ -21,7 +21,6 @@ post '/sessions' do
   end
 end
 
-#helper to allow us to see what is in session
 get '/session-viewer' do
   session.inspect
 end
