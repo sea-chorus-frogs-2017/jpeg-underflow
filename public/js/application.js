@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  $('button#comment-button').on("click", function(event) {
+    event.preventDefault();
+    $(this).siblings().removeClass('hidden');
+  });
 
   // when "add answer" button is clicked, prevent default behavior
   // and display "new answer" form
@@ -39,7 +43,4 @@ $(document).ready(function() {
       };
     });
   });
-
 });
-
-
