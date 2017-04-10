@@ -1,8 +1,6 @@
-<ul>
+<ul class="list-group">
   <% @questions.each do |question| %>
-    <li>
-      <a href="/questions/<%= question.id %>"><%= question.question_text %></a>
-    </li>
+    <a href="/questions/<%= question.id %>" class="list-group-item"><%= question.question_text %></a>
   <% end %>
 </ul>
 

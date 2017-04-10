@@ -7,6 +7,10 @@
   padding-top: 300px;
 }
 
+.list-group-item {
+  background-color: #87cefa;
+}
+
 #register input {
   margin: auto;
   display: block;
